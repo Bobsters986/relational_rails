@@ -1,0 +1,13 @@
+<h1><%= @venue.name %></h1>
+
+<h2>Artists: </h2>
+
+<% @artists.each do |artist| %>
+  <h3><%= artist.name %></h3>
+  <p>Id: <%= artist.id %></p>
+  <p>Full Band?: <%= artist.full_band %></p>
+  <p>Cost: <%= artist.cost %></p>
+  <p>Venue Id: <%= artist.venue_id %></p>
+  <p>Created At: <%= artist.created_at %></p>
+  <p>Updated At: <%= artist.updated_at %></p>
+<% end %>
