@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Venues Index Page", type: :feature do
+RSpec.describe "Artists Index Page", type: :feature do
   # As a visitor
   # When I visit '/child_table_name'
   # Then I see each Child in the system including the Child's attributes
