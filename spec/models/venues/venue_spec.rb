@@ -1,16 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe Venue, type: :model do
+
+  let!(:venue_1) { Venue.create!(decible_limit: true, rank:1, name: "Red Rocks", created_at: Time.now - 1.hour) }
+  let!(:venue_2) { Venue.create!(decible_limit: false, rank:2, name: "Mission Ballroom", created_at: Time.now - 2.hour) }
+  let!(:venue_3) { Venue.create!(decible_limit: false, rank:5, name: "Ball Arena") }
+
+  let!(:artist_4) { Artist.create!(full_band: false, cost: 63, name: "Pretty Lights", venue: venue_1) }
+  let!(:artist_5) { Artist.create!(full_band: true, cost: 70, name: "The String Cheese Incident", venue: venue_2) }
+  let!(:artist_6) { Artist.create!(full_band: false, cost: 52, name: "Emancipator", venue: venue_2) }
+  let!(:artist_7) { Artist.create!(full_band: true, cost: 75, name: "Billy Strings", venue: venue_2) }
+
   it {should have_many :artists}
-
-    let!(:venue_1) { Venue.create!(decible_limit: true, rank:1, name: "Red Rocks", created_at: Time.now - 1.hour) }
-    let!(:venue_2) { Venue.create!(decible_limit: false, rank:2, name: "Mission Ballroom", created_at: Time.now - 2.hour) }
-    let!(:venue_3) { Venue.create!(decible_limit: false, rank:5, name: "Ball Arena") }
-
-    let!(:artist_4) { Artist.create!(full_band: false, cost: 63, name: "Pretty Lights", venue: venue_1) }
-    let!(:artist_5) { Artist.create!(full_band: true, cost: 70, name: "The String Cheese Incident", venue: venue_2) }
-    let!(:artist_6) { Artist.create!(full_band: false, cost: 52, name: "Emancipator", venue: venue_2) }
-    let!(:artist_7) { Artist.create!(full_band: true, cost: 75, name: "Billy Strings", venue: venue_2) }
 
   describe 'class methods' do
     describe '#sort' do
