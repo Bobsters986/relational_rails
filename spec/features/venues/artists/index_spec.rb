@@ -14,7 +14,7 @@ RSpec.describe "Venue Artists Index Page", type: :feature do
 
   describe "As a visitor" do
     describe "when I visit '/venues/:venue_id/artists' " do
-      it "I see each Child that is associated with that Parent with each Child's attributes" do
+      it "5. I see each Child that is associated with that Parent with each Child's attributes" do
 
         visit "/venues/#{venue_1.id}/artists"
         # save_and_open_page

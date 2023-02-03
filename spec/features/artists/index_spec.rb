@@ -13,7 +13,7 @@ RSpec.describe "Artists Index Page", type: :feature do
 
   describe "As a visitor" do
     describe "when I visit '/artists' " do
-      it "I see each Child in the system including the Child's attributes" do
+      it "3. I see each Child in the system including the Child's attributes" do
 
         visit '/artists'
         save_and_open_page

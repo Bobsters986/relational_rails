@@ -11,7 +11,7 @@ RSpec.describe "Venues Index Page", type: :feature do
 
   describe "As a visitor" do
     describe "when I visit '/venues' " do
-      it "I see the name of each parent record in the system" do
+      it "1. I see the name of each parent record in the system" do
 
         visit '/venues'
         # save_and_open_page
@@ -21,7 +21,7 @@ RSpec.describe "Venues Index Page", type: :feature do
         expect(page).to have_content(venue_3.name)
       end
 
-      it "I see that records are ordered by most recently created first" do
+      it "6. I see that records are ordered by most recently created first" do
 
         visit '/venues'
         save_and_open_page
@@ -29,8 +29,8 @@ RSpec.describe "Venues Index Page", type: :feature do
         expect(page).to have_content(venue_1.created_at)
         expect(page).to have_content(venue_2.created_at)
         expect(page).to have_content(venue_3.created_at)
-        expect(venue_2.name).to appear_before(venue_1.name)
-        expect(venue_1.name).to appear_before(venue_3.name)
+        expect(venue_1.name).to appear_before(venue_2.name)
+        expect(venue_3.name).to appear_before(venue_1.name)
       end
     end
   end
