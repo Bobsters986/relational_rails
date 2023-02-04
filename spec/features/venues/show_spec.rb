@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Venues Show Page", type: :feature do
-  
+
   let!(:venue_1) { Venue.create!(decible_limit: true, rank:1, name: "Red Rocks") }
   let!(:venue_2) { Venue.create!(decible_limit: false, rank:2, name: "Mission Ballroom") }
   let!(:venue_3) { Venue.create!(decible_limit: false, rank:5, name: "Ball Arena") }
@@ -30,12 +30,22 @@ RSpec.describe "Venues Show Page", type: :feature do
 
       it "7. I see a count of the number of children associated with this parent" do
 
-        visit "/venues/#{venue_2.id}" 
+        visit "/venues/#{venue_2.id}"
         # save_and_open_page
         
         expect(page).to have_content(venue_2.name)
         expect(page).to have_content("Number of Associated Artists: #{venue_2.artist_count}")
         expect(venue_2.artist_count).to eq(3)
+      end 
+    end
+
+    describe "when I visit any page on the site" do
+      it "8. I see a link at the top of the page that takes me to the Child Index" do
+        visit '/venues'
+
+        click_link('All Artists')
+
+        expect(current_path).to eq('/artists')
       end
     end
   end
