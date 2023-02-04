@@ -27,5 +27,15 @@ RSpec.describe "Artists Show Page", type: :feature do
         expect(page).to_not have_content(artist_4.cost)
       end
     end
+
+    describe "when I visit any page on the site" do
+      it "8. I see a link at the top of the page that takes me to the Child Index" do
+        visit '/artists'
+
+        click_link('All Venues')
+
+        expect(current_path).to eq('/venues')
+      end
+    end
   end
 end
