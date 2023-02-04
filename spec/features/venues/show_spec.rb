@@ -46,6 +46,11 @@ RSpec.describe "Venues Show Page", type: :feature do
         click_link('All Artists')
 
         expect(current_path).to eq('/artists')
+        expect(page).to have_content(artist_4.name)
+        expect(page).to have_content(artist_5.name)
+        expect(page).to have_content(artist_6.name)
+        expect(page).to have_content(artist_7.name)
+
       end
     end
 
@@ -56,6 +61,7 @@ RSpec.describe "Venues Show Page", type: :feature do
         click_link('Associated Artists')
 
         expect(current_path).to eq("/venues/#{venue_1.id}/artists")
+        expect(page).to have_content(artist_4.name)
       end
     end
   end
