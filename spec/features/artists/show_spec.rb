@@ -1,10 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Artists Show Page", type: :feature do
-  # As a visitor
-  # When I visit '/child_table_name/:id'
-  # Then I see the child with that id including the child's attributes
-  # (data from each column that is on the child table)
+  
   let!(:venue_1) { Venue.create!(decible_limit: true, rank:1, name: "Red Rocks") }
   let!(:artist_1) { Artist.create!(full_band: true, cost: 60, name: "STS9", venue: venue_1) }
   let!(:artist_2) { Artist.create!(full_band: true, cost: 65, name: "Umphrey's McGee", venue: venue_1) }
@@ -16,7 +13,7 @@ RSpec.describe "Artists Show Page", type: :feature do
       it "4. I see the child with that id including the child's attributes" do
 
         visit "/artists/#{artist_1.id}"
-        save_and_open_page
+        # save_and_open_page
         
         expect(page).to have_content(artist_1.name)
         expect(page).to have_content(artist_1.full_band)
