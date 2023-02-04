@@ -48,5 +48,15 @@ RSpec.describe "Venues Show Page", type: :feature do
         expect(current_path).to eq('/artists')
       end
     end
+
+    describe "when I visit'/venues/:id'" do
+      it "10. I see a link to take me to that parent's `child_table_name` page" do
+        visit "/venues/#{venue_1.id}" 
+
+        click_link('Associated Artists')
+
+        expect(current_path).to eq("/venues/#{venue_1.id}/artists")
+      end
+    end
   end
 end
