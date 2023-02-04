@@ -6,6 +6,6 @@ class Venue < ApplicationRecord
   end
 
   def artist_count
-    self.artists.count
+    artists.count
   end
 end
