@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get '/venues', to: 'venues#index'
   get '/venues/new', to: 'venues#new'
   post '/venues', to: 'venues#create'
+  get '/venues/:id/edit', to: 'venues#edit'
+  patch '/venues/:id', to: 'venues#update'
   get '/venues/:id', to: 'venues#show'
 
   get '/artists', to: 'artists#index'

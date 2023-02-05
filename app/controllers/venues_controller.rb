@@ -15,6 +15,17 @@ class VenuesController < ApplicationController
     @venue = Venue.find(params[:id])
   end
 
+  def edit
+    @venue = Venue.find(params[:id])
+  end
+
+  def update
+    venue = Venue.find(params[:id])
+    venue.update(venue_params)
+
+    redirect_to "/venues/#{venue.id}"
+  end
+
   private
   def venue_params
     params.permit(:name, :decible_limit, :rank)
