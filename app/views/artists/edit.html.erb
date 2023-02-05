@@ -1,0 +1,16 @@
+<h1>Update Artist</h1>
+<%= form_with url: "/artists/#{@artist.id}", method: :patch, local: true do |form| %>
+  <%= form.label :name, "Artist Name: " %>
+  <%= form.text_field :name, value: @artist.name %>
+  <br>
+  <br>
+  <%= form.label :full_band, "Full Band: " %>
+  <%= form.text_field :full_band, value: @artist.full_band %>
+  <br>
+  <br>
+  <%= form.label :cost, "Cost: " %>
+  <%= form.text_field :cost, value: @artist.cost %>
+  <br>
+  <br>
+  <%= form.submit "Update Artist" %>
+<% end %>
