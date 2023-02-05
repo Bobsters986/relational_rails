@@ -1,17 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe 'Creating a new venue' do
-  # Then I see a link to create a new Parent record, "New Parent"
-  # When I click this link
-  # Then I am taken to '/parents/new' where I  see a form for a new parent record
-  # When I fill out the form with a new parent's attributes:
-  # And I click the button "Create Parent" to submit the form
-  # Then a `POST` request is sent to the '/parents' route,
-  # a new parent record is created,
-  # and I am redirected to the Parent Index page where I see the new Parent displayed.
-
   describe "As a visitor" do
     describe "when I visit '/venues' " do
+      # Then I see a link to create a new Parent record, "New Parent"
+      # When I click this link
+      # Then I am taken to '/parents/new' where I  see a form for a new parent record
+      # When I fill out the form with a new parent's attributes:
+      # And I click the button "Create Parent" to submit the form
+      # Then a `POST` request is sent to the '/parents' route,
+      # a new parent record is created,
+      # and I am redirected to the Parent Index page where I see the new Parent displayed.
+      
       it '11. I can click a link to create a new parent, and I am taken to a page with a form to create that parent' do
         visit '/venues'
 
