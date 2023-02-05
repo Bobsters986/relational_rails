@@ -3,3 +3,5 @@
 <% @venues.each do |venue| %>
   <p><strong><%= venue.name %></strong>- Created At: <%= venue.created_at %></p>
 <% end %>
+
+<%= link_to "Add New Venue", "/venues/new" %>
