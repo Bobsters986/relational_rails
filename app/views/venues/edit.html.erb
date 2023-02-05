@@ -1,0 +1,16 @@
+<h1>Update Venue</h1>
+<%= form_with url: "/venues/#{@venue.id}", method: :patch, local: true do |form| %>
+  <%= form.label :name, "Venue Name: " %>
+  <%= form.text_field :name, value: @venue.name %>
+  <br>
+  <br>
+  <%= form.label :decible_limit, "Decible Limit: " %>
+  <%= form.text_field :decible_limit, value: @venue.decible_limit %>
+  <br>
+  <br>
+  <%= form.label :rank, "Rank: " %>
+  <%= form.text_field :rank, value: @venue.rank %>
+  <br>
+  <br>
+  <%= form.submit "Update Venue" %>
+<% end %>
