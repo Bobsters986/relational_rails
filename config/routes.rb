@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   get '/artists', to: 'artists#index'
   get '/artists/:id', to: 'artists#show'
   get '/venues/:venue_id/artists', to: 'venues/artists#index'
+  get '/venues/:venue_id/artists/new', to: 'venues/artists#new'
+  post '/venues/:venue_id/artists', to: 'venues/artists#create'
 end
