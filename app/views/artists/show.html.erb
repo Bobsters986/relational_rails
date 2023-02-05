@@ -1,10 +1,9 @@
 <h1>Artist Info</h1>
-
-
 <h3><%= @artist.name %></h3>
 <p>Id: <%= @artist.id %></p>
 <p>Full Band?: <%= @artist.full_band %></p>
 <p>Cost: <%= @artist.cost %></p>
 <p>Venue Id: <%= @artist.venue_id %></p>
+<%= button_to "Update #{@artist.name}",  "/artists/#{@artist.id}/edit", method: :get %>
 <p>Created At: <%= @artist.created_at %></p>
 <p>Updated At: <%= @artist.updated_at %></p>
