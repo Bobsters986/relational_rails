@@ -29,6 +29,23 @@ RSpec.describe "Venues Index Page", type: :feature do
         expect(venue_1.name).to appear_before(venue_2.name)
         expect(venue_3.name).to appear_before(venue_1.name)
       end
+
+      it '17. I see a link to edit that parents info, next to every parent' do
+
+        visit '/venues'
+
+        expect(page).to have_link("Update #{venue_1.name}")
+        expect(page).to have_link("Update #{venue_2.name}")
+        expect(page).to have_link("Update #{venue_3.name}")
+      end
+
+      it '17. When I click the link, I should be taken to that parents edit page where I can update its information' do
+        visit '/venues'
+
+        click_link "Update #{venue_3.name}"
+
+        expect(current_path).to eq("/venues/#{venue_3.id}/edit")
+      end
     end
   end
 end
