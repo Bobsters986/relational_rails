@@ -6,9 +6,9 @@ RSpec.describe "Venues Show Page", type: :feature do
   let!(:venue_2) { Venue.create!(decible_limit: false, rank:2, name: "Mission Ballroom") }
   let!(:venue_3) { Venue.create!(decible_limit: false, rank:5, name: "Ball Arena") }
 
-  let!(:artist_4) { Artist.create!(full_band: false, cost: 63, name: "Pretty Lights", venue: venue_1) }
+  let!(:artist_4) { Artist.create!(full_band: true, cost: 63, name: "Pretty Lights", venue: venue_1) } #changed boolean to true
   let!(:artist_5) { Artist.create!(full_band: true, cost: 70, name: "The String Cheese Incident", venue: venue_2) }
-  let!(:artist_6) { Artist.create!(full_band: false, cost: 52, name: "Emancipator", venue: venue_2) }
+  let!(:artist_6) { Artist.create!(full_band: true, cost: 52, name: "Emancipator", venue: venue_2) } #changed boolean to true
   let!(:artist_7) { Artist.create!(full_band: true, cost: 75, name: "Billy Strings", venue: venue_2) }
 
   describe "As a visitor" do
