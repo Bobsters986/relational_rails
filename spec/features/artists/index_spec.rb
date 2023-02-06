@@ -18,11 +18,22 @@ RSpec.describe "Artists Index Page", type: :feature do
         expect(page).to have_content(artist_1.name)
         expect(page).to have_content(artist_2.full_band)
         expect(page).to have_content(artist_3.cost)
-        expect(page).to have_content(artist_4.id)
-        expect(page).to have_content(artist_1.created_at)
-        expect(page).to have_content(artist_2.updated_at)
-        expect(page).to have_content(artist_3.venue_id)
-        expect(page).to have_content(artist_4.venue_id)
+        expect(page).to have_content(artist_1.id)
+        expect(page).to have_content(artist_2.created_at)
+        expect(page).to have_content(artist_3.updated_at)
+        expect(page).to have_content(artist_1.venue_id)
+        expect(page).to have_content(artist_2.venue_id)
+      end
+
+      it '15. it will only show artist records if they are a full band/boolean true' do
+        visit '/artists'
+        
+        expect(page).to have_content(artist_1.full_band)
+        expect(page).to have_content(artist_2.full_band)
+        expect(page).to have_content(artist_3.full_band)
+        expect(page).to_not have_content(artist_4.full_band)
+        expect(page).to_not have_content(artist_4.name)
+
       end
     end
   end
