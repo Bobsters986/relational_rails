@@ -6,7 +6,7 @@ RSpec.describe "Venue Artists Index Page", type: :feature do
 
   describe "As a visitor" do
     describe "when I visit '/venues/:venue_id/artists' " do
-      it '12. I see a link to add a new adoptable child for that parent "Create Child"' do
+      it '13. I see a link to add a new adoptable child for that parent "Create Child"' do
         visit "/venues/#{venue_1.id}/artists"
 
         expect(page).to have_link('Create Artist')
@@ -15,7 +15,7 @@ RSpec.describe "Venue Artists Index Page", type: :feature do
         expect(current_path).to eq("/venues/#{venue_1.id}/artists/new")
       end
 
-      it '12. after submitting I am taken back to the parent index, where the new record is shown amongst the old ones' do
+      it '13. after submitting I am taken back to the parent index, where the new record is shown amongst the old ones' do
         visit "/venues/#{venue_1.id}/artists/new"
 
         fill_in('Artist Name:', with: 'Lotus')
