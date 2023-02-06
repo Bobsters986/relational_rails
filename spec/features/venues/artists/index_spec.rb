@@ -24,6 +24,22 @@ RSpec.describe "Venue Artists Index Page", type: :feature do
         expect(page).to_not have_content(artist_5.name)
         expect(page).to_not have_content(artist_5.cost)
       end
+
+      it '18. I see a link to edit that childs info, next to every child' do
+        visit "/venues/#{venue_1.id}/artists"
+
+        expect(page).to have_link("Update #{artist_1.name}")
+        expect(page).to have_link("Update #{artist_2.name}")
+        expect(page).to_not have_link("Update #{artist_5.name}")
+      end
+
+      it '18. When I click the link, I should be taken to that childs edit page where I can update its information' do
+        visit "/venues/#{venue_1.id}/artists"
+
+        click_link "Update #{artist_1.name}"
+
+        expect(current_path).to eq("/artists/#{artist_1.id}/edit")
+      end
     end
   end
 end

@@ -2,15 +2,12 @@
 <%= form_with url: '/venues', method: :post, local: true do |form| %>
   <%= form.label :name, "Venue Name: " %>
   <%= form.text_field :name %>
-  <br>
-  <br>
+  <br><br>
   <%= form.label :decible_limit, "Decible Limit: " %>
   <%= form.text_field :decible_limit %>
-  <br>
-  <br>
+  <br><br>
   <%= form.label :rank, "Rank: " %>
   <%= form.text_field :rank %>
-  <br>
-  <br>
+  <br><br>
   <%= form.submit "Create New Venue" %>
 <% end %>

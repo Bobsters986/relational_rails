@@ -8,4 +8,5 @@
   <p>Venue Id: <%= artist.venue_id %></p>
   <p>Created At: <%= artist.created_at %></p>
   <p>Updated At: <%= artist.updated_at %></p>
+  <%= link_to "Update #{artist.name}",  "/artists/#{artist.id}/edit", method: :get %>
 <% end %>
