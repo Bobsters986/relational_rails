@@ -1,6 +1,10 @@
 class ArtistsController < ApplicationController
   def index
-    @artists = Artist.only_true
+    if params[:sort] == "only_bands"
+      @artists = Artist.only_true
+    else
+      @artists = Artist.all
+    end
   end
 
   def edit

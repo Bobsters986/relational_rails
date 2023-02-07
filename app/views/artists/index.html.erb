@@ -1,5 +1,7 @@
 <h1>All Artists</h1>
 
+<%= link_to "86 the DJs", :sort => "only_bands" %>
+
 <% @artists.each do |artist| %>
   <h3><%= artist.name %></h3>
   <p>Id: <%= artist.id %></p>
