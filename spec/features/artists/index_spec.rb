@@ -56,6 +56,27 @@ RSpec.describe "Artists Index Page", type: :feature do
 
         expect(current_path).to eq("/artists/#{artist_3.id}/edit")
       end
+
+      it '23. Next to each artist, I see a link to delete that artist' do
+        visit '/artists'
+
+        expect(page).to have_link "Delete #{artist_1.name}"
+        expect(page).to have_link "Delete #{artist_2.name}"
+        expect(page).to have_link "Delete #{artist_3.name}"
+      end
+
+      it '23. When I click the link, that artist is deleted, and I am re routed to the artist index page where that record is no longer there' do
+        visit '/artists'
+
+        click_link "Delete #{artist_2.name}"
+        click_link "Delete #{artist_3.name}"
+
+        expect(current_path).to eq('/artists')
+        expect(page).to have_content(artist_1.name)
+        expect(page).to have_content(artist_4.name)
+        expect(page).to_not have_content(artist_2.name)
+        expect(page).to_not have_content(artist_3.name)
+      end
     end
   end
 end

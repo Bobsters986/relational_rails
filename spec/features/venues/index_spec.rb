@@ -57,7 +57,8 @@ RSpec.describe "Venues Index Page", type: :feature do
 
         click_link "Delete #{venue_2.name}"
         click_link "Delete #{venue_3.name}"
-
+        
+        expect(current_path).to eq('/venues')
         expect(page).to have_content(venue_1.name)
         expect(page).to_not have_content(venue_2.name)
         expect(page).to_not have_content(venue_3.name)
