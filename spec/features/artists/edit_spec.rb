@@ -7,14 +7,6 @@ RSpec.describe 'Editing an existing artist' do
 
   describe "As a visitor" do
     describe "when I visit '/artists/:id' " do
-      # Then I see a link to update that Child "Update Child"
-      # When I click the link
-      # I am taken to '/child_table_name/:id/edit' where I see a form to edit the child's attributes:
-      # When I click the button to submit the form "Update Child"
-      # Then a `PATCH` request is sent to '/child_table_name/:id',
-      # the child's data is updated,
-      # and I am redirected to the Child Show page where I see the Child's updated information
-
       it '14. links to the artist edit page, from the specific artists show page' do
         visit "/artists/#{artist_1.id}"
 
