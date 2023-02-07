@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/venues/:id/edit', to: 'venues#edit'
   patch '/venues/:id', to: 'venues#update'
   get '/venues/:id', to: 'venues#show'
+  delete 'venues/:id', to: 'venues#destroy'
 
   get '/artists', to: 'artists#index'
   get '/artists/:id/edit', to: 'artists#edit'
