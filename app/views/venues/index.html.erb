@@ -2,7 +2,8 @@
 
 <% @venues.each do |venue| %>
   <p><strong><%= venue.name %></strong>- Created At: <%= venue.created_at %></p>
-  <%= link_to "Update #{venue.name}",  "/venues/#{venue.id}/edit", method: :get %>
+  <p><%= link_to "Update #{venue.name}", "/venues/#{venue.id}/edit", method: :get %></p>
+  <p><%= link_to "Delete #{venue.name}", "/venues/#{venue.id}", method: :delete %></p>
 <% end %>
 <br><br>
 <%= link_to "Add New Venue", "/venues/new" %>
