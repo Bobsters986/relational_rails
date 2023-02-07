@@ -26,6 +26,12 @@ class VenuesController < ApplicationController
     redirect_to "/venues/#{venue.id}"
   end
 
+  def destroy
+    venue = Venue.find(params[:id])
+    venue.destroy
+    redirect_to '/venues'
+  end
+
   private
   def venue_params
     params.permit(:name, :decible_limit, :rank)
