@@ -9,13 +9,13 @@ RSpec.describe "Destroying an Artist", type: :feature do
 
   describe "As a visitor" do
     describe "when I visit '/artists/:id' " do
-      it '19. I see a link to delete that specific artist' do
+      it '20. I see a link to delete that specific artist' do
         visit "/artists/#{artist_2.id}"
 
         expect(page).to have_link 'Delete Artist'
       end
 
-      it '19. When I click the link, that artist is deleted, and I am re routed to the artist index page where that record is no longer there' do
+      it '20. When I click the link, that artist is deleted, and I am re routed to the artist index page where that record is no longer there' do
         visit "/artists/#{artist_2.id}"
         
         click_link 'Delete Artist'
