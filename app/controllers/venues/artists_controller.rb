@@ -1,7 +1,11 @@
 class Venues::ArtistsController < ApplicationController
   def index
     @venue = Venue.find(params[:venue_id])
-    @artists = @venue.artists
+    if params[:sort] == "alphabetically"
+      @artists = @venue.artists.sort_alphabetically
+    else
+      @artists = @venue.artists
+    end
   end
 
   def new

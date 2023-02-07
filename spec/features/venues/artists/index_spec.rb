@@ -7,6 +7,7 @@ RSpec.describe "Venue Artists Index Page", type: :feature do
 
   let!(:artist_1) { Artist.create!(full_band: true, cost: 60, name: "STS9", venue: venue_1) }
   let!(:artist_2) { Artist.create!(full_band: true, cost: 65, name: "Umphrey's McGee", venue: venue_1) }
+  let!(:artist_3) { Artist.create!(full_band: true, cost: 55, name: "Brit Floyd", venue: venue_1) }
   let!(:artist_5) { Artist.create!(full_band: true, cost: 70, name: "The String Cheese Incident", venue: venue_2) }
 
   describe "As a visitor" do
@@ -25,11 +26,27 @@ RSpec.describe "Venue Artists Index Page", type: :feature do
         expect(page).to_not have_content(artist_5.cost)
       end
 
+      it '16. has a link that when clicked will sort the venues artists alphabetically' do
+        
+        visit "/venues/#{venue_1.id}/artists"
+
+        expect(artist_1.name).to appear_before(artist_3.name)
+        expect(artist_2.name).to appear_before(artist_3.name)
+        expect(page).to have_link 'Sort Alphabetically'
+
+        click_link 'Sort Alphabetically'
+
+        expect(artist_3.name).to appear_before(artist_1.name)
+        expect(artist_1.name).to appear_before(artist_2.name)
+        expect(current_path).to eq("/venues/#{venue_1.id}/artists")
+      end
+
       it '18. I see a link to edit that childs info, next to every child' do
         visit "/venues/#{venue_1.id}/artists"
 
         expect(page).to have_link("Update #{artist_1.name}")
         expect(page).to have_link("Update #{artist_2.name}")
+        expect(page).to have_link("Update #{artist_3.name}")
         expect(page).to_not have_link("Update #{artist_5.name}")
       end
 

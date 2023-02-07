@@ -16,5 +16,11 @@ RSpec.describe Artist, type: :model do
         expect(Artist.only_true).to eq([artist_5, artist_7])
       end
     end
+
+    describe '#sort_alphabetically' do
+      it '16. will only show artist records if they are a full band/boolean true' do
+        expect(Artist.sort_alphabetically).to eq([artist_7, artist_6, artist_5])
+      end
+    end
   end
 end
