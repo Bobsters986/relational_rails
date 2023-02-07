@@ -11,9 +11,7 @@ RSpec.describe "Artists Index Page", type: :feature do
   describe "As a visitor" do
     describe "when I visit '/artists' " do
       it "3. I see each Child in the system including the Child's attributes" do
-
         visit '/artists'
-        # save_and_open_page
         
         expect(page).to have_content(artist_1.name)
         expect(page).to have_content(artist_2.full_band)
@@ -28,11 +26,19 @@ RSpec.describe "Artists Index Page", type: :feature do
       it '15. it will only show artist records if they are a full band/boolean true' do
         visit '/artists'
         
-        expect(page).to have_content(artist_1.full_band)
-        expect(page).to have_content(artist_2.full_band)
-        expect(page).to have_content(artist_3.full_band)
-        expect(page).to_not have_content(artist_4.full_band)
+        expect(page).to have_content(artist_1.name)
+        expect(page).to have_content(artist_2.name)
+        expect(page).to have_content(artist_3.name)
+        expect(page).to have_content(artist_4.name)
+        expect(page).to have_link '86 the DJs'
+
+        click_link '86 the DJs'
+
+        expect(page).to have_content(artist_1.name)
+        expect(page).to have_content(artist_2.name)
+        expect(page).to have_content(artist_3.name)
         expect(page).to_not have_content(artist_4.name)
+        expect(current_path).to eq('/artists')
       end
 
       it '18. I see a link to edit that childs info, next to every child' do
