@@ -13,9 +13,7 @@ RSpec.describe "Venue Artists Index Page", type: :feature do
   describe "As a visitor" do
     describe "when I visit '/venues/:venue_id/artists' " do
       it "5. I see each Child that is associated with that Parent with each Child's attributes" do
-
         visit "/venues/#{venue_1.id}/artists"
-        # save_and_open_page
 
         expect(page).to have_content(venue_1.name)
         expect(page).to have_content(artist_1.name)
@@ -27,7 +25,6 @@ RSpec.describe "Venue Artists Index Page", type: :feature do
       end
 
       it '16. has a link that when clicked will sort the venues artists alphabetically' do
-        
         visit "/venues/#{venue_1.id}/artists"
 
         expect(artist_1.name).to appear_before(artist_3.name)
@@ -56,6 +53,23 @@ RSpec.describe "Venue Artists Index Page", type: :feature do
         click_link "Update #{artist_1.name}"
 
         expect(current_path).to eq("/artists/#{artist_1.id}/edit")
+      end
+
+      it '21. I see a form that allows me to input a number. When the submit button is pressed I will only see artists with a cost greater than the input number' do
+        visit "/venues/#{venue_1.id}/artists"
+
+        expect(page).to have_content(artist_1.name)
+        expect(page).to have_content(artist_2.name)
+        expect(page).to have_content(artist_3.name)
+        expect(page).to have_button 'Only return records with more than # cost'
+
+        fill_in('Expensive Artists:', with: 61)
+        click_button 'Only return records with more than # cost'
+
+        expect(current_path).to eq("/venues/#{venue_1.id}/artists")
+        expect(page).to have_content(artist_2.name)
+        expect(page).to_not have_content(artist_1.name)
+        expect(page).to_not have_content(artist_3.name)
       end
 
       it '23. Next to each artist, I see a link to delete that artist' do
