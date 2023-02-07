@@ -19,9 +19,7 @@ RSpec.describe "Venues Index Page", type: :feature do
       end
 
       it "6. I see that records are ordered by most recently created first" do
-
         visit '/venues'
-        # save_and_open_page
         
         expect(page).to have_content(venue_1.created_at)
         expect(page).to have_content(venue_2.created_at)
@@ -31,7 +29,6 @@ RSpec.describe "Venues Index Page", type: :feature do
       end
 
       it '17. I see a link to edit that parents info, next to every parent' do
-
         visit '/venues'
 
         expect(page).to have_link("Update #{venue_1.name}")
@@ -45,6 +42,25 @@ RSpec.describe "Venues Index Page", type: :feature do
         click_link "Update #{venue_3.name}"
 
         expect(current_path).to eq("/venues/#{venue_3.id}/edit")
+      end
+
+      it '22. Next to each venue, I see a link to delete that venue' do
+        visit '/venues'
+
+        expect(page).to have_link "Delete #{venue_1.name}"
+        expect(page).to have_link "Delete #{venue_2.name}"
+        expect(page).to have_link "Delete #{venue_3.name}"
+      end
+
+      it '22. When I click the link, that venue is deleted, and I am re routed to the venue index page where that record is no longer there' do
+        visit '/venues'
+
+        click_link "Delete #{venue_2.name}"
+        click_link "Delete #{venue_3.name}"
+
+        expect(page).to have_content(venue_1.name)
+        expect(page).to_not have_content(venue_2.name)
+        expect(page).to_not have_content(venue_3.name)
       end
     end
   end
