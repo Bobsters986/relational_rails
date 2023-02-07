@@ -22,6 +22,12 @@ class ArtistsController < ApplicationController
     @artist = Artist.find(params[:id])
   end
 
+  def destroy
+    artist = Artist.find(params[:id])
+    artist.destroy
+    redirect_to '/artists'
+  end
+
   private
   def artist_params
     params.permit(:name, :full_band, :cost)
