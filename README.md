@@ -2,7 +2,7 @@
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
-
+https://app.dbdesigner.net/designer/schema/597166
 ![Schema](https://user-images.githubusercontent.com/116703107/217396266-f3b8ec20-2860-471c-b00e-55091ec2fbd6.png)
 
 Things you may want to cover:
