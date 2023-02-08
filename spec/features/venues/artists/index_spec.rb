@@ -61,10 +61,10 @@ RSpec.describe "Venue Artists Index Page", type: :feature do
         expect(page).to have_content(artist_1.name)
         expect(page).to have_content(artist_2.name)
         expect(page).to have_content(artist_3.name)
-        expect(page).to have_button 'Only return records with more than # cost'
+        expect(page).to have_button 'Show artist that cost more than #'
 
         fill_in('Expensive Artists:', with: 61)
-        click_button 'Only return records with more than # cost'
+        click_button 'Show artist that cost more than #'
 
         expect(current_path).to eq("/venues/#{venue_1.id}/artists")
         expect(page).to have_content(artist_2.name)

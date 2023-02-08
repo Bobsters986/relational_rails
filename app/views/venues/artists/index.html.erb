@@ -5,7 +5,7 @@
 <%= form_with url: "/venues/#{@venue.id}/artists", method: :get, local: true do |form| %>
   <%= form.label :cost, "Expensive Artists: " %>
   <%= form.text_field :cost %>
-  <%= form.submit "Only return records with more than # cost" %>
+  <%= form.submit "Show artist that cost more than #" %>
 <% end %>
 
 <h2>Artists: </h2>
