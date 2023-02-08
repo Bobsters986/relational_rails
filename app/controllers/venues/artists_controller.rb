@@ -3,6 +3,8 @@ class Venues::ArtistsController < ApplicationController
     @venue = Venue.find(params[:venue_id])
     if params[:sort] == "alphabetically"
       @artists = @venue.artists.sort_alphabetically
+    elsif params[:cost].present?
+      @artists = @venue.artists.artist_cost_over(params[:cost])
     else
       @artists = @venue.artists
     end

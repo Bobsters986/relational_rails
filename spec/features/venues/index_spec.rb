@@ -9,9 +9,7 @@ RSpec.describe "Venues Index Page", type: :feature do
   describe "As a visitor" do
     describe "when I visit '/venues' " do
       it "1. I see the name of each parent record in the system" do
-
         visit '/venues'
-        # save_and_open_page
         
         expect(page).to have_content(venue_1.name)
         expect(page).to have_content(venue_2.name)

@@ -2,6 +2,12 @@
 
 <%= link_to "Sort Alphabetically", :sort => "alphabetically" %>
 
+<%= form_with url: "/venues/#{@venue.id}/artists", method: :get, local: true do |form| %>
+  <%= form.label :cost, "Expensive Artists: " %>
+  <%= form.text_field :cost %>
+  <%= form.submit "Only return records with more than # cost" %>
+<% end %>
+
 <h2>Artists: </h2>
 
 <% @artists.each do |artist| %>

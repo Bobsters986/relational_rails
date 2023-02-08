@@ -22,5 +22,11 @@ RSpec.describe Artist, type: :model do
         expect(Artist.sort_alphabetically).to eq([artist_7, artist_6, artist_5])
       end
     end
+
+    describe '#artist_cost_over(num)' do
+      it '21.' do
+        expect(Artist.artist_cost_over(55)).to eq([artist_5, artist_7])
+      end
+    end
   end
 end
